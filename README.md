@@ -1,1 +1,1 @@
-# newsportal
+# News Portal App
