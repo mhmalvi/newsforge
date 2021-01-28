@@ -875,7 +875,7 @@ h5 {
 .nav > li > a {
   color: #a7b1c2;
   font-weight: 600;
-  padding: 14px 20px 14px 15px;
+  padding: 14px 20px 14px 25px;
   display: block;
 }
 .nav.metismenu > li {
@@ -1121,7 +1121,7 @@ ul.nav-second-level {
 }
 .nav-second-level li a {
   padding: 7px 10px 7px 10px;
-  padding-left: 35px;
+  padding-left: 40px;
 }
 .fixed-sidebar.mini-navbar .nav-second-level.collapsing li a,
 .nav-second-level.collapsing li a {
