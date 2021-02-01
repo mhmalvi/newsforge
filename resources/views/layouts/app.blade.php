@@ -1,36 +1,73 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html dir="ltr" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- ==== Document Title ==== -->
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <!-- ==== Document Meta ==== -->
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- ==== Favicons ==== -->
+    <link rel="icon" href="favicon.png" type="image/png">
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    {{--  --}}
+    @include('layouts.styles')
+</head>
+<body>
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preloader bg--color-1--b" data-preloader="1">
+            <div class="preloader--inner"></div>
         </div>
-    </body>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Header Section Start -->
+        @include('layouts.header')
+        <!-- Header Section End -->
+
+        <!-- Posts Filter Bar Start -->
+        @include('components.filterBar')
+        <!-- Posts Filter Bar End -->
+
+        <!-- News Ticker Start -->
+        @include('components.newsTicker')
+        <!-- News Ticker End -->
+
+        <!-- Main Content Section Start -->
+        <div class="main-content--section pbottom--30">
+            @yield('content')
+        </div>
+        <!-- Main Content Section End -->
+
+        <!-- Footer Section Start -->
+        @include('layouts.footer')
+        <!-- Footer Section End -->
+    </div>
+    <!-- Wrapper End -->
+
+    <!-- Sticky Social Start -->
+    @include('components.social')
+    <!-- Sticky Social End -->
+
+    <!-- Back To Top Button Start -->
+    <div id="backToTop">
+        <a href="#"><i class="fa fa-angle-double-up"></i></a>
+    </div>
+    <!-- Back To Top Button End -->
+
+    {{-- Scripts --}}
+    @include('layouts.scripts')
+
+</body>
 </html>
