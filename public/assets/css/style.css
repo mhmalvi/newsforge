@@ -6344,9 +6344,9 @@ ul.header--menu-links.nav > li.open > a:focus {
     z-index: 1;
 }
 
-.login--form .title {
+/* .login--form .title {
     margin-bottom: 69px;
-}
+} */
 
 .login--form .title .h1 {
     margin: 0;

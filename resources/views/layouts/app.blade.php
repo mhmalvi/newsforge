@@ -37,15 +37,17 @@
         <!-- Header Section End -->
 
         <!-- Posts Filter Bar Start -->
-        @include('components.filterBar')
+        {{-- @include('components.filterBar') --}}
         <!-- Posts Filter Bar End -->
 
         <!-- News Ticker Start -->
-        @include('components.newsTicker')
+        @if (request()->routeIs('landing'))
+            @include('components.newsTicker')
+        @endif
         <!-- News Ticker End -->
 
         <!-- Main Content Section Start -->
-        <div class="main-content--section pbottom--30">
+        <div class="main-content--section">
             @yield('content')
         </div>
         <!-- Main Content Section End -->

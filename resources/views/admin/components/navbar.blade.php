@@ -13,6 +13,11 @@
             </li>
 
             {{-- Navigations Starts --}}
+            <li>
+                <a href="{{route('landing')}}"><i class="fa fa-globe"></i>
+                    <span class="nav-label">Website</span>
+                </a>
+            </li>
             <li class="{{(Route::currentRouteName() === 'admin.dashboard') ? 'active' : ""}}">
                 <a href="{{route('admin.dashboard')}}"><i class="fa fa-th-large"></i>
                     <span class="nav-label">Dashboards</span>

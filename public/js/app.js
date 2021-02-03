@@ -20992,6 +20992,16 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./public/assets/admin/LESS/style.less":
+/*!*********************************************!*\
+  !*** ./public/assets/admin/LESS/style.less ***!
+  \*********************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/css-loader/dist/cjs.js):\nError: Can't resolve 'patterns/header-profile.png' in 'F:\\Laravel\\newsportal\\public\\assets\\admin\\LESS'\n    at finishWithoutResolve (F:\\Laravel\\newsportal\\node_modules\\enhanced-resolve\\lib\\Resolver.js:293:18)\n    at F:\\Laravel\\newsportal\\node_modules\\enhanced-resolve\\lib\\Resolver.js:362:15\n    at F:\\Laravel\\newsportal\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (F:\\Laravel\\newsportal\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at F:\\Laravel\\newsportal\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (F:\\Laravel\\newsportal\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at F:\\Laravel\\newsportal\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:87:43\n    at F:\\Laravel\\newsportal\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at eval (eval at create (F:\\Laravel\\newsportal\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at F:\\Laravel\\newsportal\\node_modules\\enhanced-resolve\\lib\\Resolver.js:410:5\n    at processResult (F:\\Laravel\\newsportal\\node_modules\\webpack\\lib\\NormalModule.js:597:19)\n    at F:\\Laravel\\newsportal\\node_modules\\webpack\\lib\\NormalModule.js:691:5\n    at F:\\Laravel\\newsportal\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at F:\\Laravel\\newsportal\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (F:\\Laravel\\newsportal\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (F:\\Laravel\\newsportal\\node_modules\\css-loader\\dist\\index.js:155:5)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)");
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -21284,6 +21294,7 @@ process.umask = function() { return 0; };
 /******/ 		
 /******/ 		var deferredModules = [
 /******/ 			["./resources/js/app.js"],
+/******/ 			["./public/assets/admin/LESS/style.less"],
 /******/ 			["./resources/css/app.css"]
 /******/ 		];
 /******/ 		// no chunk on demand loading
