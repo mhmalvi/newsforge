@@ -30,6 +30,7 @@ Route::prefix('news')->group(function(){
  */
 Route::prefix('settings')->group(function(){
     Route::get('profile', 'SiteController@profileSettings')->name('profile');
+    Route::post('profile', 'SiteController@profileUpdate')->name('userProfileUpdate');
     Route::get('website', 'SiteController@webSettings')->name('website');
     Route::get('admin', 'SiteController@adminSettings')->name('admin');
     Route::get('seo', 'SiteController@seoSettings')->name('seo');
