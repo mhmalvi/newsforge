@@ -15,7 +15,7 @@ class SiteController extends Controller
      *
      */
     public function profileSettings(){
-        return view('admin.pages.profile');
+        return view('admin.settings.profile');
     }
 
     /**
@@ -71,20 +71,20 @@ class SiteController extends Controller
      *
      */
     public function webSettings(){
-        return view('admin.pages.website');
+        return view('admin.settings.website');
     }
 
     /**
      *
      */
     public function adminSettings(){
-        return view('admin.pages.admin');
+        return view('admin.settings.admin');
     }
 
     /**
      *
      */
     public function seoSettings(){
-        return view('admin.pages.seo');
+        return view('admin.settings.seo');
     }
 }

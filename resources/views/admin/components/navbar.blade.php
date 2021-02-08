@@ -31,11 +31,14 @@
             <li class="{{(request()->segment(2) === 'news') ? 'active' : ''}}">
                 <a href="{{route('admin.news.index')}}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <span class="nav-label">News</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
+                    <li class="{{(Route::currentRouteName() === 'admin.news.create') ? 'active' : ''}}">
+                        <a href="{{route('admin.news.create')}}">Add New</a>
+                    </li>
                     <li class="{{(Route::currentRouteName() === 'admin.news.index') ? 'active' : ''}}">
                         <a href="{{route('admin.news.index')}}">All News</a>
                     </li>
-                    <li class="{{(Route::currentRouteName() === 'admin.news.create') ? 'active' : ''}}">
-                        <a href="{{route('admin.news.create')}}">Add New</a>
+                    <li class="{{(Route::currentRouteName() === 'admin.news.trashed') ? 'active' : ''}}">
+                        <a href="{{route('admin.news.trashed')}}">Trashed</a>
                     </li>
                 </ul>
             </li>

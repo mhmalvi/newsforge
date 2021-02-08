@@ -11,6 +11,14 @@ class CategoryController extends Controller
      *
      */
     public function index(){
-        return view('admin.pages.categories');
+        return view('admin.categories.categories');
+    }
+
+
+    /**
+     * 
+     */
+    public function store(Request $request){
+        return response()->toJson(['status' => 'received']);
     }
 }

@@ -11,7 +11,7 @@ class NewsController extends Controller
      *
      */
     public function index(){
-        return view('admin.pages.news');
+        return view('admin.news.news');
     }
 
 
@@ -19,6 +19,13 @@ class NewsController extends Controller
      *
      */
     public function create(){
-        return view('admin.pages.createNews');
+        return view('admin.news.createNews');
+    }
+
+    /**
+     * 
+     */
+    public function removed(){
+        return view('admin.news.trashedNews');
     }
 }

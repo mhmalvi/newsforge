@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\BaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -8,14 +7,19 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-|
 */
 
 require __DIR__.'/auth.php';
 
 Route::get('dashboard', 'BaseController@index')->name('dashboard');
 
-Route::get('categoies', 'CategoryController@index')->name('category');
+/**
+ * Categories
+ */
+Route::prefix('categories')->group(function(){
+    Route::get('/', 'CategoryController@index')->name('category');
+    Route::post('/store', 'CategoryController@store')->name('category.store');
+});
 
 /**
  * News
@@ -23,6 +27,7 @@ Route::get('categoies', 'CategoryController@index')->name('category');
 Route::prefix('news')->group(function(){
     Route::get('/', 'NewsController@index')->name('news.index');
     Route::get('create', 'NewsController@create')->name('news.create');
+    Route::get('trashed', 'NewsController@removed')->name('news.trashed');
 });
 
 /**

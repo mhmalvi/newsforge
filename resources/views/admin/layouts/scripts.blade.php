@@ -6,7 +6,7 @@
 <script src="{{asset('assets/admin/js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
 
 <!-- Custom and plugin javascript -->
-<script src="{{asset('assets/admin/js/inspinia.js')}}"></script>
+<script src="{{asset('assets/admin/js/styles.js')}}"></script>
 <script src="{{asset('assets/admin/js/plugins/pace/pace.min.js')}}"></script>
 
 @stack('js')
@@ -58,4 +58,12 @@
                   break;
           }
     @endif
+</script>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 </script>
