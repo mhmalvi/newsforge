@@ -18,7 +18,9 @@ Route::get('dashboard', 'BaseController@index')->name('dashboard');
  */
 Route::prefix('categories')->group(function(){
     Route::get('/', 'CategoryController@index')->name('category');
-    Route::post('/store', 'CategoryController@store')->name('category.store');
+    Route::get('/all', 'CategoryController@getAll');
+    Route::get('/sub', 'CategoryController@getAllSub');
+    Route::post('/store', 'CategoryController@store');
 });
 
 /**
