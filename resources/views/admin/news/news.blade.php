@@ -5,7 +5,6 @@
 @endpush
 
 @section('content')
-<div class="wrapper wrapper-content animated fadeIn">
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox ">
@@ -27,7 +26,6 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @push('js')

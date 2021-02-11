@@ -20,7 +20,10 @@
 
                 @include('admin.components.breadcrumbs')
 
-                @yield('content')
+                {{--  --}}
+                <div class="wrapper wrapper-content animated fadeIn">
+                    @yield('content')
+                </div>
 
             </div>
         </div>

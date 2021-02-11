@@ -1,8 +1,6 @@
 <link href="{{asset('assets/admin/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/admin/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
-@stack('css')
-
 <!-- Toastr style -->
 <link href="{{asset('assets/admin/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
 
@@ -17,3 +15,4 @@
     }
 </style>
 
+@stack('css')

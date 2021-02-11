@@ -10,5 +10,14 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category', 'category_id'];
+    protected $fillable = ['category', 'user_id'];
+    protected $with = ['user'];
+
+
+    /**
+     * 
+     */
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

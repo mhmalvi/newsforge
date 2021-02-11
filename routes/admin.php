@@ -18,18 +18,24 @@ Route::get('dashboard', 'BaseController@index')->name('dashboard');
  */
 Route::prefix('categories')->group(function(){
     Route::get('/', 'CategoryController@index')->name('category');
-    Route::get('/all', 'CategoryController@getAll');
-    Route::get('/sub', 'CategoryController@getAllSub');
+    Route::get('/all', 'CategoryController@getAllCategories');
     Route::post('/store', 'CategoryController@store');
+    Route::delete('/delete', 'CategoryController@removeCategories');
+});
+
+Route::prefix('subcategories')->group(function(){
+    Route::get('/', 'CategoryController@getAllSubcategories');
+    Route::delete('/delete', 'CategoryController@removeSubcategories');
 });
 
 /**
  * News
  */
-Route::prefix('news')->group(function(){
-    Route::get('/', 'NewsController@index')->name('news.index');
-    Route::get('create', 'NewsController@create')->name('news.create');
-    Route::get('trashed', 'NewsController@removed')->name('news.trashed');
+Route::prefix('news')->name('news.')->group(function(){
+    Route::get('/', 'NewsController@index')->name('index');
+    Route::get('create', 'NewsController@create')->name('create');
+    Route::post('store', 'NewsController@store')->name('store');
+    Route::get('trashed', 'NewsController@removed')->name('trashed');
 });
 
 /**
@@ -41,4 +47,6 @@ Route::prefix('settings')->group(function(){
     Route::get('website', 'SiteController@webSettings')->name('website');
     Route::get('admin', 'SiteController@adminSettings')->name('admin');
     Route::get('seo', 'SiteController@seoSettings')->name('seo');
+    
+    Route::post('maintenance', 'SiteController@toggleMaintenance')->name('mainTenance');
 });

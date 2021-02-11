@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -72,6 +73,24 @@ class SiteController extends Controller
      */
     public function webSettings(){
         return view('admin.settings.website');
+    }
+
+
+    /**
+     * Toggle Maintenance
+     */
+    public function toggleMaintenance(Request $request){
+        if($request->filled('id') && $request->id == 'on'){
+            $status = $request->status;
+
+            if($status){
+                Artisan::call('down');
+            }else{
+                Artisan::call('up');
+            }
+        }else{
+
+        }
     }
 
     /**

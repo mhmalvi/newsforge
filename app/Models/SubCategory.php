@@ -5,12 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
+use App\Models\User;
 
 class SubCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['sub-category', 'category_id'];
+    protected $fillable = ['sub-category', 'category_id', 'user_id'];
+    protected $with = ['category', 'user'];
+
+    
+    /**
+     * 
+     */
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 
     /**
      * 

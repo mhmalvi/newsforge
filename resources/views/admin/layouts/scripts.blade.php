@@ -9,8 +9,6 @@
 <script src="{{asset('assets/admin/js/styles.js')}}"></script>
 <script src="{{asset('assets/admin/js/plugins/pace/pace.min.js')}}"></script>
 
-@stack('js')
-
 <!-- GITTER -->
 <script src="{{asset('assets/admin/js/plugins/gritter/jquery.gritter.min.js')}}"></script>
 
@@ -67,3 +65,5 @@
         }
     });
 </script>
+
+@stack('js')
