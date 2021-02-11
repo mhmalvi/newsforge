@@ -16,7 +16,7 @@
                     <div style="display: flex; justify-content: center;">
                         <div class="switch">
                             <div class="onoffswitch">
-                                <input type="checkbox" class="onoffswitch-checkbox" id="example1" onchange="maintenance(this)">
+                                <input type="checkbox" class="onoffswitch-checkbox" id="example1" {{($maintenance->status) ? 'checked' : ''}} onchange="maintenance(this)">
                                 <label class="onoffswitch-label" for="example1">
                                     <span class="onoffswitch-inner"></span>
                                     <span class="onoffswitch-switch"></span>
@@ -34,16 +34,22 @@
     <script>
         function maintenance(el){
             var status = (el.checked) ? 1 : 0;
-            
+
             $.post(
                 '{{ route("admin.mainTenance") }}',
                 {_token:'{{ csrf_token() }}', id:el.value, status:status},
-                function(data){
-                    if(data.res == 1){
-                        toastr.success('Status successfully updated!', 'Success');
+                function(response){
+                    if(response.data.status == 200){
+                        toastr.success(response.data.msg, 'Success');
+                    }
+                    else if(response.data.status == 404){
+                        toastr.warning(response.data.msg, 'warning');
+                    }
+                    else if(response.data.status == 400 || response.data.status == 500){
+                        toastr.danger(response.data.msg, 'danger');
                     }
                 }
             );
         }
-    </script> 
+    </script>
 @endpush

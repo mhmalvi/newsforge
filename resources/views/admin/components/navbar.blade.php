@@ -14,7 +14,7 @@
 
             {{-- Navigations Starts --}}
             <li>
-                <a href="{{route('landing')}}"><i class="fa fa-globe"></i>
+                <a href="{{route('landing')}}" target="_blank"><i class="fa fa-globe"></i>
                     <span class="nav-label">Website</span>
                 </a>
             </li>

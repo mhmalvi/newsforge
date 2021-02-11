@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Settings;
+use App\Models\Activation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -28,7 +30,7 @@ class SiteController extends Controller
 
             $data->name = $request->username;
             $data->email = $request->email;
-    
+
             if($request->hasFile('file')){
                 //delete old image
                 Storage::delete('public/users/' . $data->photo);
@@ -36,25 +38,25 @@ class SiteController extends Controller
                 if (!Storage::exists("public/users")) {
                     Storage::makeDirectory("public/users");
                 }
-    
+
                 $image = $request->file('file');
                 $imgExtension = $image->getClientOriginalExtension();
-    
+
                 $file = Auth::user()->name.'.'.$imgExtension;
-    
+
                 $data->photo = $file;
 
                 //store image into storage directory
                 Storage::putFileAs('public/users', $image, $file);
             }
-            
+
             $data->save();
 
             $notification = [
                 'message'   =>  'Profile successfully updated!',
                 'alert-type'    =>  'success'
             ];
-    
+
             return redirect()->back()->with($notification);
 
         } catch (\Throwable $th) {
@@ -63,7 +65,7 @@ class SiteController extends Controller
                 'message'   =>  $th->getMessage(),
                 'alert-type'    =>  'warning'
             ];
-    
+
             return redirect()->back()->with($notification);
         }
     }
@@ -72,7 +74,8 @@ class SiteController extends Controller
      *
      */
     public function webSettings(){
-        return view('admin.settings.website');
+        $maintenance = Activation::firstWhere('type', 'maintenance');
+        return view('admin.settings.website', compact('maintenance'));
     }
 
 
@@ -80,16 +83,55 @@ class SiteController extends Controller
      * Toggle Maintenance
      */
     public function toggleMaintenance(Request $request){
-        if($request->filled('id') && $request->id == 'on'){
-            $status = $request->status;
+        try{
+            $notification = [];
 
-            if($status){
-                Artisan::call('down');
+            if($request->filled('status') && $request->id == 'on'){
+                $status = $request->status;
+                $type = Activation::where('type', 'maintenance')->firstOrFail();
+                $notification = [];
+
+                if($status && !$type->status){
+                    Artisan::call('down');
+                    $type->status = $status;
+                    $type->save();
+
+                    $notification = [
+                        'status' => 200,
+                        'msg' => 'Maintenance mode activated!'
+                    ];
+                }
+                else if(!$status && $type->status){
+                    Artisan::call('up');
+                    $type->status = $status;
+                    $type->save();
+
+                    $notification = [
+                        'status' => 200,
+                        'msg' => 'Application is activated!'
+                    ];
+                }
+                else{
+                    $notification = [
+                        'status' => 404,
+                        'msg' => 'Something went wrong!'
+                    ];
+                }
+
+                return new Settings($notification);
             }else{
-                Artisan::call('up');
+                $notification = [
+                    'status' => 400,
+                    'msg' => 'Bad request!'
+                ];
+                return new Settings($notification);
             }
-        }else{
-
+        }catch(\Throwable $th){
+            $notification = [
+                'status' => 500,
+                'msg' => 'Internal Server Error!'
+            ];
+            return new Settings($notification);
         }
     }
 
