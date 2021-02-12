@@ -44,6 +44,7 @@
                 padding: 20px;
             }
         </style>
+        @stack('css')
     </head>
     <body>
         <div class="flex-center position-ref full-height">
