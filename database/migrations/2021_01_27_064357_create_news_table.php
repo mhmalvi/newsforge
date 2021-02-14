@@ -27,6 +27,7 @@ class CreateNewsTable extends Migration
                     ->onDelete('set null');
 
             $table->text('title')->nullable();
+            $table->text('slug')->nullable();
             $table->text('details')->nullable();
             $table->string('thumbnail')->nullable();
             $table->enum('published', ['1', '0'])->default('0');

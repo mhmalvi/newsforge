@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewsRequest;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class NewsController extends Controller
      *
      */
     public function store(Request $request){
-        dd($request->all());
+        
     }
 
     /**

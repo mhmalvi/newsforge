@@ -21,11 +21,17 @@
                                 <div class="row form-group">
                                     <div class="col-md-12">
                                         <input type="text" name="title" id="" class="form-control" placeholder="Title..."/>
+                                        @error('title')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-md-12">
                                         <textarea name="details" id="details"></textarea>
+                                        @error('details')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +57,9 @@
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-md-12">
-                                        <select name="subcategory" id="subcategory" data-placeholder="choose a category first..."></select>
+                                        <select name="subcategory" id="subcategory" data-placeholder="choose a category first...">
+                                            <option value disabled>Choose a subcategory</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row form-group">

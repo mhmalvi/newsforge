@@ -19,8 +19,7 @@
 
                     <ul class="dropdown-menu">
                         <li><a href="#">English</a></li>
-                        <li><a href="#">Spanish</a></li>
-                        <li><a href="#">French</a></li>
+                        <li><a href="#">Bangla</a></li>
                     </ul>
                 </li>
             </ul>
