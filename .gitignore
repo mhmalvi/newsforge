@@ -13,3 +13,7 @@ npm-debug.log
 yarn-error.log
 *.zip
 *.rar
+.env.*
+credentials.json
+serviceAccountKey.json
+.claude/
