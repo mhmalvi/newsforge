@@ -1,6 +1,8 @@
 <!-- repo-card -->
 ![newsforge](docs/assets/social-card.png)
 
+![newsforge — architecture](docs/assets/architecture.png)
+
 # NewsForge
 
 A full-featured news portal built with Laravel, featuring a robust admin panel for publishing and categorizing news content with comment and tagging support.
